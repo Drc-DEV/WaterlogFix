@@ -1,0 +1,7 @@
+Settings:
+  enabled-worlds:
+    - "world"
+    - "world_nether"
+    - "world_the_end"
+  radius-check: 3
+  drain-chance: 0.9
