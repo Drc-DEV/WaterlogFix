@@ -18,7 +18,7 @@ public class ExplosionListener implements Listener {
         if (WaterlogFix.getInstance().getConfig().getStringList("Settings.enabled-worlds").stream().noneMatch(e.getLocation().getWorld().getName()::equalsIgnoreCase))
             return;
         int radius = WaterlogFix.getInstance().getConfig().getInt("Settings.radius-check");
-        double chance = WaterlogFix.getInstance().getConfig().getInt("Settings.drain-chance");
+        double chance = WaterlogFix.getInstance().getConfig().getDouble("Settings.drain-chance");
         if (radius <= 0 || chance <= 0) return;
         if (chance > 1) chance = 1;
         drainInRadius(e.getLocation(), e.getYield(), radius, chance);

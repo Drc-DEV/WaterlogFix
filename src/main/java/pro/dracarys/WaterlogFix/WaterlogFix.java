@@ -27,7 +27,7 @@ public class WaterlogFix extends JavaPlugin {
         } else if (getServerVersion() > 14) {
             Util.sendConsole("&e[WaterlogFix] Your Server version (1." + ver + ") should be compatible but it's untested!");
         } else {
-            Util.sendConsole("&a[WaterlogFix] Your Server version (1." + ver + ") is compatible &4❤");
+            Util.sendConsole("&a[WaterlogFix] Your Server version (1." + ver + ") is compatible");
         }
         saveDefaultConfig();
         PluginCommand cmd = this.getCommand("waterlogfix");
@@ -66,11 +66,11 @@ public class WaterlogFix extends JavaPlugin {
     private void printPluginInfo() {
         Util.sendConsole("&f▆ &f▆ &f▆ &f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆ &f▆ &f▆ &f▆");
         Util.sendConsole(" ");
-        Util.sendConsole("&f➤  &c" + getDescription().getName() + " &7v" + getDescription().getVersion() + "&a Enabled ✔");
-        Util.sendConsole("&f➤  &f&o" + getDescription().getDescription());
-        Util.sendConsole("&f➤ &eMade with &4❤ &eby &f" + getDescription().getAuthors().get(0));
+        Util.sendConsole("&f>  &c" + getDescription().getName() + " &7v" + getDescription().getVersion() + "&a Enabled");
+        Util.sendConsole("&f>  &f&o" + getDescription().getDescription());
+        Util.sendConsole("&f> &eMade with &4♥ &eby &f" + getDescription().getAuthors().get(0));
         if (getDescription().getVersion().contains("-DEV"))
-            Util.sendConsole("&f➤ &cThis is a BETA, report any unexpected behaviour to the Author!");
+            Util.sendConsole("&f> &cThis is a BETA, report any unexpected behaviour to the Author!");
         Util.sendConsole(" ");
         Util.sendConsole("&f▆ &f▆ &f▆ &f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆&f▆ &f▆ &f▆ &f▆");
     }
