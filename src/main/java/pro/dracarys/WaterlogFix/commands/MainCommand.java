@@ -36,6 +36,7 @@ public class MainCommand implements TabExecutor {
         if (args.length == 0 || (args[0].equalsIgnoreCase("help"))) {
             sender.sendMessage(Util.color("&f&lWaterlogFix &7by Valentina_pro &2v%version%").replace("%version%", WaterlogFix.getInstance().getDescription().getVersion()));
             sender.sendMessage(Util.color(" &e/wlogfix &6reload &7» &fReload Config"));
+            sender.sendMessage(Util.color(" &6Enabled Worlds: &7" + String.join("&f,&7", WaterlogFix.enabledWorlds)));
             return true;
         }
         // |====================================================»
@@ -47,9 +48,11 @@ public class MainCommand implements TabExecutor {
                 return true;
             }
             WaterlogFix.getInstance().reloadConfig();
+            WaterlogFix.enabledWorlds = WaterlogFix.getInstance().getConfig().getStringList("Settings.enabled-worlds");
             sender.sendMessage(Util.color("&aConfig Reloaded."));
             return true;
         }
+        sender.sendMessage(Util.color("&cCould not recognize that sub-command! &eUse &f/wlogfix help &efor a list of available commands."));
         return true;
     }
 

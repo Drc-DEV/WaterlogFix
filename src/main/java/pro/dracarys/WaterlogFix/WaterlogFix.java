@@ -8,6 +8,9 @@ import pro.dracarys.WaterlogFix.commands.MainCommand;
 import pro.dracarys.WaterlogFix.listeners.ExplosionListener;
 import pro.dracarys.WaterlogFix.utils.Util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class WaterlogFix extends JavaPlugin {
 
     private static WaterlogFix plugin;
@@ -84,4 +87,6 @@ public class WaterlogFix extends JavaPlugin {
     private static int getServerVersion() {
         return ver;
     }
+
+    public static List<String> enabledWorlds = new ArrayList<>();
 }
