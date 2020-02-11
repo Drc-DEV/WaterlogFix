@@ -1,4 +1,4 @@
-# Eclipse stuff
+# Eclipse
 /.classpath
 /.project
 /.settings
@@ -6,20 +6,10 @@
 # netbeans
 /nbproject
 
-# we use maven!
+# maven/gradle
 /build.xml
-
-# maven
 /target
-
-#gradle
 /.gradle
-/build
-
-# vim
-.*.sw[a-savageFactions]
-
-# various other potential build files
 /build
 /bin
 /dist
