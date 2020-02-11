@@ -3,5 +3,6 @@ Settings:
     - "world"
     - "world_nether"
     - "world_the_end"
+  use-explosion-radius: false
   radius-check: 3
   drain-chance: 0.9

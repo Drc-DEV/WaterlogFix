@@ -17,16 +17,26 @@ public class ExplosionListener implements Listener {
     public void onExplosion(EntityExplodeEvent e) {
         if (WaterlogFix.enabledWorlds.stream().noneMatch(e.getLocation().getWorld().getName()::equalsIgnoreCase))
             return;
-        int radius = WaterlogFix.getInstance().getConfig().getInt("Settings.radius-check");
         double chance = WaterlogFix.getInstance().getConfig().getDouble("Settings.drain-chance");
-        if (radius <= 0 || chance <= 0) return;
+        if (chance <= 0) return;
         if (chance > 1) chance = 1;
-        drainInRadius(e.getLocation(), e.getYield(), radius, chance);
+        final double finalChance = chance;
+        if (WaterlogFix.getInstance().getConfig().getBoolean("Settings.use-explosion-radius")) {
+            e.blockList().forEach(block -> {
+                if (block.getLocation().getY() > 0 && (finalChance == 1 || Math.random() <= finalChance)) {
+                    setWaterlogged(block, false);
+                }
+            });
+            return;
+        }
+        int radius = WaterlogFix.getInstance().getConfig().getInt("Settings.radius-check");
+        if (radius <= 0) return;
+
+        drainInRadius(e.getLocation(), radius, chance);
     }
 
-    private void drainInRadius(Location source, float yield, double dmgRadius, double chance) {
-        if (yield > 1) dmgRadius += yield / 10;
-        int radius = (int) Math.ceil(dmgRadius);
+    private void drainInRadius(Location source, double dmgRadius, double chance) {
+        int radius = (int) dmgRadius;
         for (int x = -radius; x <= radius; x++) {
             for (int y = -radius; y <= radius; y++) {
                 for (int z = -radius; z <= radius; z++) {
