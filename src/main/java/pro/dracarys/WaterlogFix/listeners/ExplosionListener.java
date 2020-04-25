@@ -10,12 +10,13 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import pro.dracarys.WaterlogFix.WaterlogFix;
+import pro.dracarys.WaterlogFix.utils.Util;
 
 public class ExplosionListener implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     public void onExplosion(EntityExplodeEvent e) {
-        if (WaterlogFix.enabledWorlds.stream().noneMatch(e.getLocation().getWorld().getName()::equalsIgnoreCase))
+        if (!Util.isEnabledWorld(e.getLocation().getWorld().getName()))
             return;
         double chance = WaterlogFix.getInstance().getConfig().getDouble("Settings.drain-chance");
         if (chance <= 0) return;
@@ -49,7 +50,7 @@ public class ExplosionListener implements Listener {
         }
     }
 
-    private static boolean isWaterlogged(Block block) {
+    private boolean isWaterlogged(Block block) {
         if (block == null || block.getType().equals(Material.AIR)) {
             return false;
         }
@@ -57,7 +58,7 @@ public class ExplosionListener implements Listener {
         return blockData instanceof Waterlogged && ((Waterlogged) blockData).isWaterlogged();
     }
 
-    private static void setWaterlogged(Block block, boolean waterlogged) {
+    private void setWaterlogged(Block block, boolean waterlogged) {
         if (!isWaterlogged(block)) return;
         Waterlogged blockData = (Waterlogged) block.getBlockData();
         BlockState bs = block.getState();

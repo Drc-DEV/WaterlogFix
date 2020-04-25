@@ -7,8 +7,10 @@
     <groupId>pro.dracarys</groupId>
     <artifactId>waterlogfix</artifactId>
     <name>WaterlogFix</name>
+    <version>1.3</version>
+    <packaging>jar</packaging>
     <url>https://dracarys.pro</url>
-    <version>1.2</version>
+    <description>Fix Raiding waterlogged blocks</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -38,6 +40,29 @@
                     </archive>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.2</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <minimizeJar>true</minimizeJar>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <relocations>
+                                <relocation>
+                                    <pattern>org.bstats</pattern>
+                                    <shadedPattern>pro.dracarys.WaterlogFix.shade.bstats</shadedPattern>
+                                </relocation>
+                            </relocations>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
         <resources>
             <resource>
@@ -48,6 +73,21 @@
     </build>
 
     <repositories>
+        <!-- CodeMC repository -->
+        <repository>
+            <id>codemc-repo</id>
+            <url>https://repo.codemc.org/repository/maven-public/</url>
+        </repository>
+        <!-- Jitpack repository -->
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+        <!-- Maven Central repository -->
+        <repository>
+            <id>maven-central</id>
+            <url>https://oss.sonatype.org/content/groups/public</url>
+        </repository>
         <!-- SpigotMC repository -->
         <repository>
             <id>spigot-repo</id>
@@ -56,6 +96,20 @@
     </repositories>
 
     <dependencies>
+        <!-- Config-Updater -->
+        <dependency>
+            <groupId>com.tchristofferson</groupId>
+            <artifactId>ConfigUpdater</artifactId>
+            <version>1.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- bStats -->
+        <dependency>
+            <groupId>org.bstats</groupId>
+            <artifactId>bstats-bukkit</artifactId>
+            <version>1.7</version>
+            <scope>compile</scope>
+        </dependency>
         <!-- SpigotMC -->
         <dependency>
             <groupId>org.spigotmc</groupId>

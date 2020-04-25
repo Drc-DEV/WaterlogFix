@@ -1,4 +1,5 @@
 Settings:
+  make-enabled-worlds-a-blacklist: false
   enabled-worlds:
     - "world"
     - "world_nether"
@@ -6,3 +7,7 @@ Settings:
   use-explosion-radius: false
   radius-check: 3
   drain-chance: 0.9
+
+Messages:
+  config-reloaded: "&aConfiguration Reloaded!"
+  no-permissions: "&cYou must have the &f%perm% &cpermission!"

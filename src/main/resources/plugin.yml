@@ -1,11 +1,12 @@
 main: pro.dracarys.WaterlogFix.WaterlogFix
 name: WaterlogFix
 authors: [Valentina_pro]
-version: ${project.version}
-description: Fix Raiding waterlogged blocks
+prefix: "${project.name}"
+version: "${project.version}"
+description: "${project.description}"
 api-version: '1.13'
 softdepend: [Factions]
 commands:
   waterlogfix:
-    description: Main Command
+    description: Main Command for WaterlogFix
     aliases: [wlogfix]
