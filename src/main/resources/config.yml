@@ -4,10 +4,14 @@ Settings:
     - "world"
     - "world_nether"
     - "world_the_end"
-  use-explosion-radius: false
   radius-check: 3
   drain-chance: 0.9
 
 Messages:
   config-reloaded: "&aConfiguration Reloaded!"
   no-permissions: "&cYou must have the &f%perm% &cpermission!"
+  cmd-reload-desc: "Reload Config"
+  cmd-wrong-args: "&cCould not recognize that sub-command! &eUse &f%cmd% &efor a list of available commands."
+
+Permissions:
+  reload-command: "waterlogfix.reload"

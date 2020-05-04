@@ -7,7 +7,7 @@ import pro.dracarys.WaterlogFix.WaterlogFix;
 public class Util {
 
     public static void sendConsole(String str) {
-        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', str));
+        Bukkit.getConsoleSender().sendMessage(color(str));
     }
 
     public static String color(String message) {
@@ -20,4 +20,5 @@ public class Util {
             return !output;
         return output;
     }
+
 }

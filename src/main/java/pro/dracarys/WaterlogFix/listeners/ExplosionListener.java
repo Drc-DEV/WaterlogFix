@@ -21,6 +21,7 @@ public class ExplosionListener implements Listener {
         double chance = WaterlogFix.getInstance().getConfig().getDouble("Settings.drain-chance");
         if (chance <= 0) return;
         if (chance > 1) chance = 1;
+        /*
         final double finalChance = chance;
         if (WaterlogFix.getInstance().getConfig().getBoolean("Settings.use-explosion-radius")) {
             e.blockList().forEach(block -> {
@@ -30,9 +31,9 @@ public class ExplosionListener implements Listener {
             });
             return;
         }
+         */
         int radius = WaterlogFix.getInstance().getConfig().getInt("Settings.radius-check");
         if (radius <= 0) return;
-
         drainInRadius(e.getLocation(), radius, chance);
     }
 
