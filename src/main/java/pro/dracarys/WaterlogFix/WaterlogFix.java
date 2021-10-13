@@ -37,7 +37,7 @@ public class WaterlogFix extends JavaPlugin {
             Util.sendConsole("&cYour Server version (1." + ver + ") is not compatible with this plugin! Only 1.13+ supported! Disabling...");
             getServer().getPluginManager().disablePlugin(this);
             return;
-        } else if (getServerVersion() > 15) {
+        } else if (getServerVersion() > 17) {
             Util.sendConsole("&e[WaterlogFix] Your Server version (1." + ver + ") should be compatible but it's untested!");
         } else {
             Util.sendConsole("&a[WaterlogFix] Your Server version (1." + ver + ") is compatible");

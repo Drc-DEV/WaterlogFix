@@ -7,7 +7,7 @@
     <groupId>pro.dracarys</groupId>
     <artifactId>waterlogfix</artifactId>
     <name>WaterlogFix</name>
-    <version>1.4</version>
+    <version>1.5</version>
     <packaging>jar</packaging>
     <url>https://dracarys.pro</url>
 
@@ -18,7 +18,7 @@
     </properties>
 
     <build>
-        <finalName>${project.name}_v${project.version}</finalName>
+        <finalName>${project.name}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -121,7 +121,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.15.2-R0.1-SNAPSHOT</version>
+            <version>1.17.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
